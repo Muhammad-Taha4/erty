@@ -1,0 +1,103 @@
+/* Google Fonts + Fontshare are loaded via <link> tags in src/routes/__root.tsx.
+   Keeping remote @import url(...) here breaks lightningcss on Windows
+   (it tries to resolve the URL as a local file path → ENOENT). */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-body: 'Inter', 'Satoshi', sans-serif;
+  --font-display: 'Clash Display', 'Satoshi', sans-serif;
+
+  --color-bg: hsl(var(--bg));
+  --color-bg-2: hsl(var(--bg-2));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: hsl(var(--accent));
+
+  --color-background: hsl(var(--bg));
+  --color-foreground: hsl(var(--text));
+  --color-border: hsl(var(--stroke));
+}
+
+:root {
+  /* Unified dark space/tech theme */
+  --bg: 228 43% 3%;          /* #04050a */
+  --bg-2: 225 43% 5.5%;      /* #080b14 */
+  --surface: 228 25% 8%;     /* approx rgba(255,255,255,0.04) over bg */
+  --text: 0 0% 100%;         /* #ffffff */
+  --muted: 222 16% 66%;      /* #9aa3b8 */
+  --stroke: 228 20% 14%;     /* approx rgba(255,255,255,0.08) over bg */
+  --accent: 228 92% 63%;     /* #4a6cf7 */
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--stroke));
+  }
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--text));
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .accent-gradient {
+    background: linear-gradient(90deg, #D4AF37 0%, #F2D675 50%, #E8D8A8 100%);
+  }
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  /* Italic display words keep an editorial feel via Clash Display oblique */
+  .font-display.italic {
+    font-style: italic;
+    font-family: 'Clash Display', 'Satoshi', serif;
+  }
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+@keyframes role-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+.animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out;
+}
+.animated-gradient-border {
+  background: linear-gradient(90deg, #D4AF37 0%, #F2D675 50%, #E8D8A8 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.18);
+}
+
+html { scroll-behavior: auto; }
+::selection { background: rgba(212,175,55,0.35); color: #fff; }
+
+.reveal { opacity: 0; transform: translateY(40px); will-change: opacity, transform; }
