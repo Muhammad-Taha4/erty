@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = ".netlify/functions-internal"
+  environment = {
+    NODE_VERSION = "20"
+  }
+
+[dev]
+  framework = "vite"
+  publish = "dist"
+  functions = ".netlify/functions-internal"

@@ -17,10 +17,30 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
 /* Hero copy responsive */
 #heroCopy h1{font-size:clamp(28px, 5.4vw, 72px);}
 #heroCopy p{font-size:clamp(14px, 1.6vw, 17px);max-width:min(92vw,460px);padding:0 16px;}
+#heroCopy a{padding:13px 26px;}
+#deviceStage{width:min(92vw,1180px);max-width:1180px;top:50%;}
+#hint{font-size:clamp(11px,1vw,13px);}
+
+@media (max-width: 991px) {
+  #deviceStage{width:min(94vw,820px);top:53%;}
+}
+
 @media (max-width: 767px){
-  #heroCopy{padding-top:6vh;justify-content:flex-start !important;}
-  #heroCopy h1{margin-top:14vh;margin-bottom:12px;}
-  #heroCopy p{margin-bottom:20px;}
+  #heroCopy{padding-top:8vh;justify-content:flex-start !important;align-items:center;}
+  #heroCopy h1{margin-top:14vh;margin-bottom:12px;font-size:clamp(30px, 8vw, 45px);}
+  #heroCopy p{margin-bottom:20px;max-width:min(88vw,360px);font-size:clamp(14px, 3.4vw, 16px);}
+  #heroCopy a{padding:12px 22px;font-size:13px;}
+  #deviceStage{width:min(96vw,520px);top:56%;transform:translate(-50%,-56%);}
+  #device{border-radius:16px;}
+  #heroGrid{background-size:34px 34px;}
+  #heroGlow{width:170px;height:170px;bottom:28%;}
+  #hint{bottom:18px;letter-spacing:0.16em;}
+}
+
+@media (max-width: 479px) {
+  #heroCopy h1{font-size:clamp(26px,9vw,38px);}
+  #heroCopy p{max-width:min(92vw,320px);font-size:14px;}
+  #deviceStage{width:min(96vw,420px);top:58%;transform:translate(-50%,-58%);}
 }
 `;
       document.head.appendChild(styleEl);
@@ -124,8 +144,7 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
     <section
       id="hero"
       style={{
-        position: "relative",
-        height: "100vh",
+        position: "relative",        minHeight: "100svh",        height: "100vh",
         width: "100%",
         overflow: "hidden",
         background: "#0a0e27",
@@ -156,6 +175,8 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
           top: "50%",
           transform: "translate(-50%, -50%)",
           width: "min(92vw, 1180px)",
+          maxWidth: "1180px",
+          maxHeight: "85vh",
           aspectRatio: "1.571",
           transformOrigin: "center 60%",
           willChange: "transform",

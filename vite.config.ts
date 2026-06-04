@@ -12,6 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    preset: "netlify",
+  },
   // Proxy Lovable-hosted assets (/__l5e/...) to the published site so images
   // and videos load during local `vite dev`. These assets live on Lovable's
   // platform, not in the repo, so without this they 404 locally.
