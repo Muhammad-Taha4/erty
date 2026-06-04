@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import harshitAsset from "@/assets/harshit.jpg.asset.json";
 import taimanAsset from "@/assets/taiman.jpg.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 const FADE = {
   initial: { opacity: 0, y: 30 },
@@ -22,7 +23,7 @@ const FOUNDERS: F[] = [
   {
     label: "Meet The Founder",
     name: "Harshit",
-    img: harshitAsset.url,
+    img: resolveAssetUrl(harshitAsset.url),
     bio: [
       "Hi, I'm Harshit — founder of QYLMORA.",
       "Exploring how immersive technology can help jewelry businesses create more confident shopping experiences and stronger customer engagement.",
@@ -31,7 +32,7 @@ const FOUNDERS: F[] = [
   {
     label: "Meet The Co-Founder",
     name: "Taiman",
-    img: taimanAsset.url,
+    img: resolveAssetUrl(taimanAsset.url),
     reverse: true,
     bio: [
       "Hi, I'm Taiman — co-founder of QYLMORA.",

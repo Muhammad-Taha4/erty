@@ -3,12 +3,13 @@ import j1 from "@/assets/j1.jpeg.asset.json";
 import j2 from "@/assets/j2.jpeg.asset.json";
 import j3 from "@/assets/j3.jpeg.asset.json";
 import j4 from "@/assets/j4.jpeg.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 const ENTRIES = [
-  { title: "Not sure how jewelry will look on them", img: j1.url, read: "Hesitation #1", date: "Customer psychology" },
-  { title: "Want to compare multiple designs side by side", img: j2.url, read: "Hesitation #2", date: "Customer psychology" },
-  { title: "Fear making the wrong choice", img: j3.url, read: "Hesitation #3", date: "Customer psychology" },
-  { title: "Cannot visualize customizations or final piece", img: j4.url, read: "Hesitation #4", date: "Customer psychology" },
+  { title: "Not sure how jewelry will look on them", img: resolveAssetUrl(j1.url), read: "Hesitation #1", date: "Customer psychology" },
+  { title: "Want to compare multiple designs side by side", img: resolveAssetUrl(j2.url), read: "Hesitation #2", date: "Customer psychology" },
+  { title: "Fear making the wrong choice", img: resolveAssetUrl(j3.url), read: "Hesitation #3", date: "Customer psychology" },
+  { title: "Cannot visualize customizations or final piece", img: resolveAssetUrl(j4.url), read: "Hesitation #4", date: "Customer psychology" },
 ];
 
 export default function Journal() {

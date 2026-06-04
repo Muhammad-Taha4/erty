@@ -10,8 +10,16 @@ import e3 from "@/assets/expl-3.jpeg.asset.json";
 import e4 from "@/assets/expl-4.jpeg.asset.json";
 import e5 from "@/assets/expl-5.jpeg.asset.json";
 import e6 from "@/assets/expl-6.jpeg.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
-const IMGS = [e1.url, e2.url, e3.url, e4.url, e5.url, e6.url];
+const IMGS = [
+  resolveAssetUrl(e1.url),
+  resolveAssetUrl(e2.url),
+  resolveAssetUrl(e3.url),
+  resolveAssetUrl(e4.url),
+  resolveAssetUrl(e5.url),
+  resolveAssetUrl(e6.url),
+];
 
 export default function Explorations() {
   const sectionRef = useRef<HTMLElement>(null);

@@ -7,6 +7,7 @@ import tryOnVideo from "@/assets/try-on-video.mp4.asset.json";
 import viewer3dAsset from "@/assets/viewer-3d-screen.jpeg.asset.json";
 import compareAsset from "@/assets/compare.jpeg.asset.json";
 import customizeVideo from "@/assets/customize-video-new.mov.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 const VIEW = { once: true, margin: "-100px" };
 const FADE = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as const }, viewport: VIEW };
@@ -14,10 +15,10 @@ const FADE = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }
 type Project = { title: string; img: string; span: string; video?: string };
 
 const PROJECTS: Project[] = [
-  { title: "Virtual Try-On", img: tryOnVideo.url, video: tryOnVideo.url, span: "md:col-span-7" },
-  { title: "3D Jewelry Viewer", img: viewer3dAsset.url, span: "md:col-span-5" },
-  { title: "Compare Designs", img: compareAsset.url, span: "md:col-span-5" },
-  { title: "Product Customization", img: customizeVideo.url, video: customizeVideo.url, span: "md:col-span-7" },
+  { title: "Virtual Try-On", img: resolveAssetUrl(tryOnVideo.url), video: resolveAssetUrl(tryOnVideo.url), span: "md:col-span-7" },
+  { title: "3D Jewelry Viewer", img: resolveAssetUrl(viewer3dAsset.url), span: "md:col-span-5" },
+  { title: "Compare Designs", img: resolveAssetUrl(compareAsset.url), span: "md:col-span-5" },
+  { title: "Product Customization", img: resolveAssetUrl(customizeVideo.url), video: resolveAssetUrl(customizeVideo.url), span: "md:col-span-7" },
 ];
 
 export default function SelectedWorks() {

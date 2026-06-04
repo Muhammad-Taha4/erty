@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logoAsset from "@/assets/qylmora-logo.png.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 const LINKS: { label: string; href: string }[] = [
   { label: "Home", href: "#home" },
@@ -63,7 +64,7 @@ export default function Navbar() {
             onClick={(e) => handleClick(e, "#home", "Home")}
             className="group relative h-9 flex items-center px-2 transition-transform hover:scale-105 shrink-0"
           >
-            <img src={logoAsset.url} alt="QYLMORA" className="h-6 md:h-7 w-auto object-contain" />
+            <img src={resolveAssetUrl(logoAsset.url)} alt="QYLMORA" className="h-6 md:h-7 w-auto object-contain" />
           </a>
 
           {/* Desktop links */}

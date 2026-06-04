@@ -10,13 +10,14 @@ import imgFloating from "@/assets/showcase-floating.png.asset.json";
 import imgProblem from "@/assets/showcase-problem.png.asset.json";
 import imgPsychology from "@/assets/showcase-psychology.png.asset.json";
 import imgCompare from "@/assets/showcase-compare.png.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
   {
-    src: imgAllAngles.url,
+    src: resolveAssetUrl(imgAllAngles.url),
     eyebrow: "01 — In-Store Tablet",
     title: "Every angle. One screen.",
     desc: "A boutique-grade interface that lets customers explore 500+ designs and view every angle in real time.",
@@ -24,7 +25,7 @@ const SLIDES = [
     accent: "from-[#c9a86a]/40 to-transparent",
   },
   {
-    src: imgPsychology.url,
+    src: resolveAssetUrl(imgPsychology.url),
     eyebrow: "02 — Buyer Psychology",
     title: "The hesitation, mapped.",
     desc: "Five universal doubts that hold every jewelry purchase back — and the moments we resolve them.",
@@ -32,7 +33,7 @@ const SLIDES = [
     accent: "from-[#c9a86a]/30 to-transparent",
   },
   {
-    src: imgFloating.url,
+    src: resolveAssetUrl(imgFloating.url),
     eyebrow: "03 — AI Try-On",
     title: "Wear it before you own it.",
     desc: "Realistic try-on across front, side, and back — true-to-scale, lifelike shine, zero guesswork.",
@@ -40,7 +41,7 @@ const SLIDES = [
     accent: "from-[#c9a86a]/35 to-transparent",
   },
   {
-    src: imgCompare.url,
+    src: resolveAssetUrl(imgCompare.url),
     eyebrow: "04 — Compare & Customize",
     title: "Side-by-side certainty.",
     desc: "Compare designs, swap metals, change pendant shapes — every decision visualized instantly.",
@@ -48,7 +49,7 @@ const SLIDES = [
     accent: "from-[#c9a86a]/30 to-transparent",
   },
   {
-    src: imgProblem.url,
+    src: resolveAssetUrl(imgProblem.url),
     eyebrow: "05 — The Old Way",
     title: "What we're replacing.",
     desc: "Limited trays, long consultations, and a guessing game between you and your customer.",
