@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 md:pt-6 px-3 md:px-4">
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 lg:pt-6 px-3 lg:px-4" style={{ paddingTop: "env(safe-area-inset-top)" }}>
         <nav
           className={`flex items-center gap-1 rounded-full backdrop-blur-md border border-white/10 bg-surface/80 px-2 py-2 transition-shadow w-full max-w-[680px] md:w-auto ${
             scrolled ? "shadow-md shadow-black/10" : ""
@@ -68,7 +68,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <div className="w-px h-5 bg-stroke mx-1" />
             {LINKS.map((l) => (
               <a
@@ -87,7 +87,7 @@ export default function Navbar() {
             <div className="w-px h-5 bg-stroke mx-1" />
           </div>
 
-          <div className="flex-1 md:hidden" />
+          <div className="flex-1 lg:hidden" />
 
           {/* CTA — hidden on smallest, visible from sm+ */}
           <a
@@ -107,7 +107,7 @@ export default function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-full text-text-primary hover:bg-stroke/50 transition-colors shrink-0"
+            className="lg:hidden inline-flex items-center justify-center min-h-[44px] min-w-[44px] h-11 w-11 rounded-full text-text-primary hover:bg-stroke/50 transition-colors shrink-0"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -116,7 +116,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden={!open}
@@ -125,7 +125,7 @@ export default function Navbar() {
           className="absolute inset-0 bg-bg/85 backdrop-blur-xl"
           onClick={() => setOpen(false)}
         />
-        <div className="relative h-full flex flex-col items-center justify-center gap-3 px-8">
+        <div className="relative h-full flex flex-col items-center justify-center gap-4 px-6" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
           {LINKS.map((l, i) => (
             <a
               key={l.label}

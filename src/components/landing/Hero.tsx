@@ -15,11 +15,27 @@ export default function Hero() {
 nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08);}
 
 /* Hero copy responsive */
-#heroCopy h1{font-size:clamp(28px, 5.4vw, 72px);}
+#heroCopy h1{font-size:clamp(28px, 5.4vw, 72px);} 
 #heroCopy p{font-size:clamp(14px, 1.6vw, 17px);max-width:min(92vw,460px);padding:0 16px;}
 #heroCopy a{padding:13px 26px;}
 #deviceStage{width:min(92vw,1180px);max-width:1180px;top:50%;}
 #hint{font-size:clamp(11px,1vw,13px);}
+
+/* Hands: positioned to hug the device bezel and slightly overlap outside */
+#device { z-index: 1; }
+#handLeft, #handRight { position: absolute; pointer-events: none; will-change: transform, opacity; z-index: 4; }
+#handLeft img, #handRight img { display:block; max-width:100%; height:auto; }
+#handLeft{ left: -130px; bottom: -20%; width:420px; transform-origin: center bottom; transform: translateX(16px) rotate(-8deg); }
+#handRight{ right: -300px; bottom: -20%; width:440px; transform-origin: center bottom; transform: translateX(18px) rotate(10deg); }
+
+@media (max-width: 1199px) {
+  #handLeft{ left: -90px; bottom: -16%; width:360px; transform: translateX(20px) rotate(-8deg); }
+  #handRight{ right: -40px; bottom: -10%; width:360px; transform: translateX(12px) rotate(10deg); }
+}
+@media (max-width: 767px){
+  /* hide on small screens to avoid layout issues */
+  #handLeft, #handRight{ display:none; }
+}
 
 @media (max-width: 991px) {
   #deviceStage{width:min(94vw,820px);top:53%;}
@@ -30,7 +46,7 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
   #heroCopy h1{margin-top:14vh;margin-bottom:12px;font-size:clamp(30px, 8vw, 45px);}
   #heroCopy p{margin-bottom:20px;max-width:min(88vw,360px);font-size:clamp(14px, 3.4vw, 16px);}
   #heroCopy a{padding:12px 22px;font-size:13px;}
-  #deviceStage{width:min(96vw,520px);top:56%;transform:translate(-50%,-56%);}
+  #deviceStage{width:min(96vw,520px);top:56%;transform:translate(-50%,-56%);} 
   #device{border-radius:16px;}
   #heroGrid{background-size:34px 34px;}
   #heroGlow{width:170px;height:170px;bottom:28%;}
@@ -38,9 +54,9 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
 }
 
 @media (max-width: 479px) {
-  #heroCopy h1{font-size:clamp(26px,9vw,38px);}
+  #heroCopy h1{font-size:clamp(26px,9vw,38px);} 
   #heroCopy p{max-width:min(92vw,320px);font-size:14px;}
-  #deviceStage{width:min(96vw,420px);top:58%;transform:translate(-50%,-58%);}
+  #deviceStage{width:min(96vw,420px);top:58%;transform:translate(-50%,-58%);} 
 }
 `;
       document.head.appendChild(styleEl);
@@ -183,6 +199,14 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
           zIndex: 2,
         }}
       >
+        {/* Left/Right hand artwork (positioned relative to stage so it scales) */}
+        <div id="handLeft" aria-hidden>
+          <img src="/__l5e/assets-v1/bd3b7524-8d5a-4bf8-b254-0976ef040c39/hand-left.png" alt="" />
+        </div>
+        <div id="handRight" aria-hidden>
+          <img src="/__l5e/assets-v1/9e5382e7-78ce-42a1-9613-b26589671dc8/hand-right.png" alt="" />
+        </div>
+
         {/* Device frame */}
         <div
           id="device"
@@ -268,7 +292,7 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 3,
+          zIndex: 6,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
