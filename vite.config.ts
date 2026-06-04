@@ -13,7 +13,7 @@ export default defineConfig({
     server: { entry: "server" },
   },
   nitro: {
-    preset: "netlify",
+    preset: "vercel",
   },
   // Proxy Lovable-hosted assets (/__l5e/...) to the published site so images
   // and videos load during local `vite dev`. These assets live on Lovable's
