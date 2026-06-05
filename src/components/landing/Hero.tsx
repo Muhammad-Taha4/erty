@@ -1,5 +1,7 @@
 import { useEffect } from "react";
-
+import handLeftAsset from "@/assets/hand-left.png.asset.json";
+import handRightAsset from "@/assets/hand-right.png.asset.json";
+import { resolveAssetUrl } from "@/lib/asset";
 
 export default function Hero() {
   useEffect(() => {
@@ -201,10 +203,10 @@ nav.scrolled{background:rgba(6,9,18,0.72);backdrop-filter:blur(14px);-webkit-bac
       >
         {/* Left/Right hand artwork (positioned relative to stage so it scales) */}
         <div id="handLeft" aria-hidden>
-          <img src="/__l5e/assets-v1/bd3b7524-8d5a-4bf8-b254-0976ef040c39/hand-left.png" alt="" />
+          <img src={resolveAssetUrl(handLeftAsset.url)} alt="" />
         </div>
         <div id="handRight" aria-hidden>
-          <img src="/__l5e/assets-v1/9e5382e7-78ce-42a1-9613-b26589671dc8/hand-right.png" alt="" />
+          <img src={resolveAssetUrl(handRightAsset.url)} alt="" />
         </div>
 
         {/* Device frame */}
